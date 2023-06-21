@@ -11239,6 +11239,34 @@ section {
     height: 3rem;
 }
 
+#body-login {
+    background: linear-gradient(
+            26.77deg,
+            rgba(0, 0, 0, 0.41) -2.85%,
+            rgba(0, 0, 0, 0) 94.96%
+        ),
+        #02d1ff;
+}
+
+#buttonsewa {
+    background: #00a7dc;
+    border: 3px solid #8ceaff;
+    border-radius: 36px;
+}
+
+#tombolregister {
+    background: #00a7dc;
+    border: 1px solid #8ceaff;
+    border-radius: 5px;
+}
+
+
+#tombollogin {
+    background: #00a7dc;
+    border: 1px solid #8ceaff;
+    border-radius: 5px;
+}
+
 #mainNav {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -11462,7 +11490,6 @@ footer a:focus {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: underline;
 }
-
 
 .masthead {
     background: linear-gradient(189.81deg, #00d1ff 8.18%, #006278 73.92%);

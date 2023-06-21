@@ -31,12 +31,12 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                            <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Katalog</a></li>
+                            <li class="nav-item"><a class="nav-link me-lg-3" href="katalog">Katalog</a></li>
                             <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Kontak</a></li>
                         </ul>
 
                         <a href="login">
-                            <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                            <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal" id="tombollogin">
                                 <span class="d-flex align-items-center">
                                     <span class="small" >Login</span>
                                 </span>
@@ -44,7 +44,7 @@
                         </a>
                     
                         <a href="register">
-                            <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0 ms-2" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                            <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0 ms-2" data-bs-toggle="modal" data-bs-target="#feedbackModal" id="tombolregister">
                                 <span class="d-flex align-items-center">
                                     <span class="small" >Register</span>
                                 </span>
@@ -63,7 +63,7 @@
                                 <h1 class="display-1 lh-1 mb-3" id="teksbesar">Sewa Kamera dengan harga bersahabat</h1>
                                 <div class="d-flex flex-column flex-lg-row align-items-center">
                                     <a href="katalog">
-                                        <button type="button" class="btn btn-primary btn-lg btnsewa">Sewa Sekarang!</button>
+                                        <button type="button" class="btn btn-primary btn-lg btnsewa" id="buttonsewa">Sewa Sekarang!</button>
                                     </a>
                                 </div>
                             </div>

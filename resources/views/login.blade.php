@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login - Cutes Camerable</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" />
+
 </head>
+
 <body>
-    <div class="container"><br>
+    <div class="container" id="body-login"><br>
         <div class="col-md-4 col-md-offset-4">
             <h2 class="text-center"><br>Selamat Datang</h3>
             <hr>
