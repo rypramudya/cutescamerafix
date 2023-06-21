@@ -10,17 +10,14 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('tabel_kamera', function (Blueprint $table) {
-            $table->id('id_kamera');
-            $table->string('nama_kamera');
-            $table->string('keterangan');
-            $table->integer('harga_sewa')->default(0);
-            $table->integer('stok_kamera')->default(0);
+        Schema::create('tabel_detail_peminjaman', function (Blueprint $table) {
+            $table->string('id_pinjam');
             $table->string('type_kamera');
-            $table->string('image_kamera')->nullable();
+            $table->string('jam_ambil');
+            $table->string('lama_sewa');
+            $table->date('tgl_sewa');
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -28,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('kameras');
+        Schema::dropIfExists('tabel_detail_peminjaman');
     }
 };
