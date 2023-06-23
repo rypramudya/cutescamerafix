@@ -28,7 +28,7 @@
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-person-circle"  alt="Profile" class="rounded-circle "></i>
-            <span class="d-none d-md-block ps-2">Hai Maniezzz!</span>
+            <span class="d-none d-md-block ps-2">Hai {{Auth::user()->nama}}!</span>
           </a><!-- End Profile Iamge Icon -->
 
           {{-- <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
