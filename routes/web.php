@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController; //memanggil file login controller
-use App\Http\Controllers\RegisterController; //memanggil file register controller
+use App\Http\Controllers\AdminController; //memanggil file register controller
 
 //Route itu berfungsi untuk menjalankan file blade di browser
 
@@ -26,6 +26,13 @@ Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actio
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('actionregister', [LoginController::class, 'actionregister'])->name('actionregister');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+
+//untuk mengedit profile di profil admin
+Route::get('/edit-profile',[AdminController::class, 'tabelprofile'])->name("tabelprofile");
+Route::get('/tambah-admin',[AdminController::class, 'create'])->name("formadmin");
+Route::post('/tambah-admin',[AdminController::class, 'store'])->name("tambahadmin");
+Route::get('/tambah-admin/{admin}/edit',[AdminController::class, 'edit'])->name("editadmin");
+Route::put('/tambah-admin/{admin}',[AdminController::class, 'update'])->name("updateadmin");
 
 
 

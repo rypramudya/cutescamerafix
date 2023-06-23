@@ -11,7 +11,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="menu-title">User</li>
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="{{route('tabelprofile')}}">
           <i class="bi bi-person-vcard"></i>
           <span>Edit Profile</span>
         </a>

@@ -12,6 +12,9 @@ use Session;
 
 class LoginController extends Controller
 {
+
+   
+
     public function login()
     {
         if (Auth::check()) {
