@@ -27,6 +27,6 @@ class UserSeeder extends Seeder
             'fotobersamaid' => 'default.jpg',
             'password' => hash::make('tami'),
             'remember_token' => Str::random(60),
-             ]);
+        ]);
     }
 }

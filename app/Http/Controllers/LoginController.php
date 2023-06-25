@@ -118,4 +118,43 @@ class LoginController extends Controller
 
         return redirect('/login'); // jika registrasi berhasil akan diarahkan ke halaman login
     }
+     //ubah password
+     public function changePassword()
+     {
+     return view('change-password');
+     }
+ 
+     public function updatePassword(Request $request)
+     {
+ 
+         //cek password lama
+ 
+         // Validasi
+         $request->validate([
+             'old_password' => 'required','min:4',
+             'new_password' => 'required','min:4','confirmed',
+         ]);
+ 
+ 
+         //Pengecekan password lama
+         if(!Hash::check($request->old_password, auth()->user()->password)){
+             return back()->with("error", "Kata sandi lama atau kata sandi baru tidak sesuai!");
+         }
+ 
+ 
+         //update password baru
+         User::whereemail(auth()->user()->email)->update([
+             //auth()->user()->update([
+             'password' => Hash::make($request->new_password)
+         ]);
+ 
+         return back()->with("status", "Password berhasil diubah!");
+     }
+ 
+     //fungsi tampil customer
+     public function tampilCustomer()
+     {
+         $data = User::all();
+         return view('customer.data-customer', compact('data'));
+     }
 }
