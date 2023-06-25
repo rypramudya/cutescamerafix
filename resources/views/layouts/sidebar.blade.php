@@ -26,7 +26,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="menu-title">Customer</li>
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="{{route('tampil-customer')}}">
           <i class="bi bi-people"></i>
           <span>Data Customer</span>
         </a>

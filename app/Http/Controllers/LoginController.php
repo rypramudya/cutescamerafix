@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\DetailPengguna;
 use Illuminate\Support\Facades\Validator; //memanggil fungsi validator
 use Illuminate\Support\Facades\Hash;  //untuk membaca password hash
 use Carbon\Carbon; //membaca class carbon
@@ -34,7 +35,11 @@ class LoginController extends Controller
         // dd(Auth::user());
 
         if (Auth::attempt($data)) { // tadine A gede
-            return redirect('/dashboard');
+            if(Auth::user()->role == 1) {
+                return redirect('/dashboard');
+            }else{
+                return redirect('/katalog'); //yang nambah tami
+            }
         } else {
             Session::flash('error', 'Email atau Password Salah');
             // return2 back()->with('loginError', 'Login Gagal');
@@ -91,29 +96,34 @@ class LoginController extends Controller
 
         $user = new User();
         $user->nama = $request->nama;
-        $user->alamat = $request->alamat;
-        $user->nik = $request->nik;
-        $user->nohp = $request->nohp;
         $user->email = $request->email;
-        $user->jenisid = $request->jenisid;
-        // $user->role = 1; // isi dengan role nya
         $user->password = Hash::make($request->password);
+        $user->role = 2; // isi dengan role nya
+
+        $detailPengguna = new DetailPengguna();
+        $detailPengguna->alamat = $request->alamat;
+        $detailPengguna->nik = $request->nik;
+        $detailPengguna->nohp = $request->nohp;
+        
+        $detailPengguna->jenisid = $request->jenisid;
+       
 
         if ($request->hasFile('fotoid')) {
             $file = $request->file('fotoid');
             $fileName = $request['nama'] . Carbon::now()->locale('id')->translatedFormat('dHis') .'.'. $file->getClientOriginalExtension();
             $imagePath = $file->storeAs('public/images', $fileName); // simpan gambar di folder storage/app/public/images
         }
-        $user->fotoid = basename($imagePath);
+        $detailPengguna->fotoid = basename($imagePath);
 
         if ($request->hasFile('fotobersamaid')) {
             $file = $request->file('fotobersamaid');
             $fileName = $request['nama'] . Carbon::now()->locale('id')->translatedFormat('dHis') . $file->getClientOriginalExtension(); //fungsi carbon untuk memanipulasi tanggal/jam 
             $filePathid = $file->storeAs('public/images', $fileName); // simpan gambar di folder storage/app/public/images
         }
-        $user->fotobersamaid = basename($filePathid);
+        $detailPengguna->fotobersamaid = basename($filePathid);
 
         $user->save();
+        $detailPengguna->save();
         session::flash('success', 'Data berhasil ditambahkan');
 
         return redirect('/login'); // jika registrasi berhasil akan diarahkan ke halaman login
@@ -154,7 +164,7 @@ class LoginController extends Controller
      //fungsi tampil customer
      public function tampilCustomer()
      {
-         $data = User::all();
+         $data = User::join('detail_penggunas', 'users.id','=','detail_penggunas.user_id')->select('users.nama', 'users.email', 'users.id', 'detail_penggunas.user_id', 'detail_penggunas.nik','detail_penggunas.nohp','detail_penggunas.alamat','detail_penggunas.fotobersamaid','detail_penggunas.jenisid')->get();
          return view('customer.data-customer', compact('data'));
      }
 }

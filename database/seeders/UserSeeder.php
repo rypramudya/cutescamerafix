@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\DetailPengguna;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\support\Str;
@@ -15,18 +16,31 @@ class UserSeeder extends Seeder
      */
     public function run(): void  //seeder atau data palsu 
     {
-        User::truncate();
+        // User::truncate();
         User::create([
-            'nik' => '210302035',
-            'nama' => 'tami',
-            'nohp' => '085878653934',
-            'alamat' => 'kalisabuk',
-            'jenisid' => 'KK',
-            'fotoid' => 'default.jpg',
+            'nama' => 'admin',
             'email' => 'tami@gmail.com',
-            'fotobersamaid' => 'default.jpg',
             'password' => hash::make('tami'),
+            'role' => 1, //admin
             'remember_token' => Str::random(60),
+        ]);
+
+        User::create([        
+            'nama' => 'pengguna',
+            'email' => 'pengguna@gmail.com',
+            'password' => hash::make('tami'),
+            'role' => 2, //pengguna
+            'remember_token' => Str::random(60),
+        ]);
+
+        DetailPengguna::create([
+        'user_id' => 2,
+        'nik' => '210302035',
+        'nohp' => '085878653934',
+        'alamat' => 'kalisabuk',
+        'jenisid' => 'KK',
+        'fotoid' => 'default.jpg',
+        'fotobersamaid' => 'default.jpg',
         ]);
     }
 }

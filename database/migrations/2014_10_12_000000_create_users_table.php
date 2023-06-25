@@ -12,16 +12,12 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id('nik'); //primary key nya
+            $table->id(); //primary key nya
             $table->string('nama');
-            $table->string('nohp');
-            $table->string('alamat');
-            $table->string('fotobersamaid');
-            $table->string('fotoid');
-            $table->enum('jenisid',['KTP','KK','KARTU PELAJAR/MAHASISWA','SIM']);
             $table->string('email')->unique(); //email harus unik tidak boleh sama
             $table->timestamp('email_verified_at')->nullable(); //data dibiarkan kosong
             $table->string('password');
+            $table->string('role'); //nambah tami
             $table->rememberToken();
             $table->timestamps();
         });

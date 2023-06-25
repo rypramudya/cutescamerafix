@@ -27,5 +27,11 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('actionregister', [LoginController::class, 'actionregister'])->name('actionregister');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
+//untuk menampilkan form ubah password
+Route::get('/change-password', [LoginController::class, 'changePassword'])->name('change-password');
+Route::post('/change-password', [LoginController::class, 'updatePassword'])->name('update-password');
+
+Route::get('/data-customer', [LoginController::class, 'tampilCustomer'])->name('tampil-customer');
+
 
 
