@@ -47,43 +47,15 @@
                                   
                                    
                                         <td>
-                                             <!-- <button class="btn btn-danger" type="button"
-                                                data-url="{{route('destroy', [$item->nik])}}"><span
-                                                    class="fa fa-trash"></span></button> -->
-
-                                         <!-- <form action="{{ route('destroy', $item->nik) }}" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <div>
-                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return 
-                                            confirm('Apakah Anda yakin ingin menghapus paket ini?')">Hapus</button>
-                                        </div>
-                                    </form> -->
-
-                                    <!-- <form method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')" action="{{ route('destroy', $item->nik) }}">
-                                        @csrf
-                                        <input type="hidden" value="DELETE" name="_method">
-                                        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
-                                    </form> -->
-                                    <form action="{{ route('destroy', $item->nik) }}" method="post"
+                                            
+                                    
+                                    <form action="#" method="post"
                                         onsubmit="return confirm('Yakin akan menghapus data ?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" name="submit" class="btn btn-danger bi bi-trash mx-1"></button>
                                     </form>
                                     {{-- <a href="" class="btn btn-danger bi bi-trash mx-1"></a> --}}
-
-                                                    <!-- <form method="GET" class="d-inline" onsubmit="return confirm('Apakah Anda Yakin Menghapus Data?')" action="{{route('destroy', [$item->nik])}}">
-                                                        @csrf
-                                                        <input type="hidden" value="DELETE" name="_method">
-                                                        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
-                                                    </form> -->
-
-                                                    <!-- <a href="/destroy/{{$item->nik}}" 
-                                                    onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" 
-                                                    class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a> -->
-
-                                                    
                                             
                                         </td>
                               </tr>
